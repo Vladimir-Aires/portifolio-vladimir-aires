@@ -78,7 +78,7 @@ header{
 }
 
 .img-logo{
-    max-width: 60px;
+    max-width: 500px;
     height: 100%;
     border-radius: 50%;
     box-shadow: 1px 1px 1px 1px gray
@@ -130,6 +130,7 @@ nav{
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   
+  
 }
 
 
@@ -163,17 +164,20 @@ main{
     gap: 2rem;
 }
 
-section{
-    padding: 4rem;
-}
+
 
 .first-section{
+    background-image: url('images/fundo-portifolio.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
     flex-wrap: wrap;
     align-items: center;
-    min-height: 650px;
+    text-align: center;
+    min-height: 750px;
 }
 
 .first-section > div{
@@ -207,17 +211,21 @@ strong{
     width: 100%;
     
 }
+.img-who-am-i{
+    width: 350px;
+    border-radius: 50%;
+}
 
-:is(.second-section,.fourth-section){
+/* :is(.second-section,.fourth-section){
     background-color: var(--dark2);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-}
+} */
 
-.second-section ul{
+/* .second-section ul{
     list-style: none;
     display: flex;
     justify-content: center;
@@ -236,36 +244,50 @@ strong{
     color: var(--dark5);
     transition: .4s;
     cursor: default;
-}
+} */
 
 .title{
     color: var(--dark5);
+    
 }
-
-.third-section{
-    display: flex;
+.about-me{
+    display:flex;
     flex-direction: column;
+    background-color: #ffd700;
+    align-items: flex-start ; 
+    flex-wrap: wrap;
     gap: 2rem;
+    max-width: 600px;
+}
+.second-section{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 500px;
+    background-color: #181B20;
+    color: white;
+    align-items: center;
 }
 
-.third-section > div{
+/* .second-section > div{
     display: flex;
     gap: 4rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
+    
+} */
 
-.third-section > div img{
+/* .second-section > div img{
     width: 250px;
     border-radius: 10px;
-}
+} */
 
-.third-section > div p{
+/* .second-section > div p{
     max-width: 600px;
     color: var(--white);
     text-align: justify;
-}
+} */
 
 footer{
     padding: 4rem;
@@ -301,7 +323,7 @@ footer > div{
     cursor: pointer
 }
 
-:is(.img-profile, .img-who-am-i){
+/* :is(.img-profile, .img-who-am-i){
     box-shadow: 1px 1px 1px 1px var(--cyan);
-}
+} */
 
