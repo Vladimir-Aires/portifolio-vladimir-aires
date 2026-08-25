@@ -7,48 +7,16 @@
 html {
   scroll-behavior: smooth;
 }
-/* :root{
-    --white: #fff;
-    --dark1:#34344e;
-    --dark2:#3a415a;
-    --dark3: #566981;
-    --dark4: #89a7b1;
-    --dark5: #cbdad5;
-    --dark6: #2f2f46;
-    --cyan: #70e3ea;
-} */
 
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-::-webkit-scrollbar-track {
-  background: var(--dark2);
-}
 
-::-webkit-scrollbar-thumb {
-  background: var(--dark3);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--dark4);
-}
 body {
   background-color: #f5f6f8;
   height: 100vh;
   font-family: "Lato";
 }
 
-/* header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding: .8rem;
-    background-color: var(--dark6);
-    min-height: 50px;
-} */
+
 header {
   position: fixed;
   top: 0;
@@ -129,30 +97,7 @@ nav {
   transition: all 0.3s;
 }
 
-:is(button, .link-action) {
-  padding: 0.6rem;
-  font-size: 0.9rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.4s;
-}
 
-.btn-action {
-  background-color: transparent;
-  border: 1px solid var(--white);
-  color: var(--white);
-}
-
-.btn-action:hover {
-  background-color: var(--dark3);
-  border: 1px solid var(--dark3);
-}
-
-.link-action {
-  text-decoration: none;
-  width: 200px;
-  text-align: center;
-}
 main {
   display: flex;
   flex-direction: column;
@@ -186,9 +131,7 @@ h1 {
   letter-spacing: 8px;
 }
 
-strong {
-  color: var(--cyan);
-}
+
 
 .first-section p {
   color: var(--white);
@@ -208,39 +151,9 @@ strong {
   border-radius: 50%;
 }
 
-/* :is(.second-section,.fourth-section){
-    background-color: var(--dark2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-} */
 
-/* .second-section ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
 
-.second-section ul li{
-    color: var(--dark4);
-    letter-spacing: 2px;
-    font-weight: bold;
-}
 
-.second-section ul li:hover{
-    color: var(--dark5);
-    transition: .4s;
-    cursor: default;
-} */
-
-.title {
-  color: var(--dark5);
-}
 .about-me {
   display: flex;
   flex-direction: column;
@@ -267,8 +180,27 @@ strong {
   border: 1px solid black;
   border-radius: 20px;
   overflow: hidden;
-}
+  position: relative;
 
+}
+.card-arrow{
+  
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+
+}
 .card-project-2{
   width: 300px;
   height: 200px;
@@ -283,30 +215,39 @@ strong {
 }
 .card-body{
   padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro semi-transparente */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Estado inicial escondido */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+
 }
 .card-button{
   margin-top: 7px;
   border-radius: 20px;
 }
-/* .second-section > div{
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    
-} */
 
-/* .second-section > div img{
-    width: 250px;
-    border-radius: 10px;
-} */
+.card:not(.card-em-breve):hover .card-body {
+  opacity: 1; /* Revela o conteúdo */
+}
 
-/* .second-section > div p{
-    max-width: 600px;
-    color: var(--white);
-    text-align: justify;
-} */
+.card:not(.card-em-breve):hover .card-arrow {
+  opacity: 0; /* Esconde a seta quando o menu abre */
+}
+
 
 footer {
   padding: 4rem;
@@ -333,15 +274,13 @@ footer > div {
 
 #my-projects-list a {
   text-decoration: none;
-  color: var(--dark3);
+  
 }
 
 #my-projects-list a:hover {
-  color: var(--dark5);
+  
   transition: 0.4s;
   cursor: pointer;
 }
 
-/* :is(.img-profile, .img-who-am-i){
-    box-shadow: 1px 1px 1px 1px var(--cyan);
-} */
+
