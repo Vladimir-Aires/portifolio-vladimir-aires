@@ -6,14 +6,23 @@ const repositorios = [
     url: "#testeURL",
     nomeProjeto: "Teste nome do projeto",
     descricao: "Teste descrição cweujvrjnvenjovenvenoevnjuevfvef",
-    miniatura:
-      "https://img.magnific.com/vetores-gratis/design-plano-design-de-logotipo-ac_23-2149482027.jpg?semt=ais_hybrid&w=740&q=80",
+    miniatura: "images/emBreve_template.png",
   },
-  {},
-  {},
-  {},
-  {},
-  {},
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
 ];
 
 const secaoProjetos = document.querySelector(".my-projects-list");
@@ -65,4 +74,21 @@ function estruturador() {
   });
 }
 
+secaoProjetos.addEventListener("click", (event) => {
+  const botaoClicado = event.target.closest(".acordeom");
+
+  if (!botaoClicado) return;
+
+  const cardAtual = botaoClicado.closest(".card-project");
+
+  const cardAberto = cardAtual.classList.contains("ativo");
+
+  document.querySelectorAll(".card-project.ativo").forEach((card) => {
+    card.classList.remove("ativo");
+  });
+
+  if (!cardAberto) {
+    cardAtual.classList.add("ativo");
+  }
+});
 estruturador();
