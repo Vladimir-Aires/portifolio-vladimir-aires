@@ -188,25 +188,57 @@ h1 {
 .card-project{
   width: 300px;
   /* height: 400px; */
-  border: 1px solid black;
+  border: 1px solid #ffd700;
   margin: 50px;
   border-radius: 20px;
   padding: 0;
   overflow: hidden;
+  box-shadow: 1px 1px 1px gray
 
 }
 .acordeom{
-  background-color: #f1cf0f;
+  background-color: #ffd700;
   width: 100%;
   height: 5vh;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
+}
+
+.acordeom > i{
+  width: 20px;
+  height: 20px;
+  color: black;
+ 
+}
+
+@keyframes animacaoSeta{
+  0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px); /* Desce até o limite */
+    }
+    100% {
+        transform: translateY(0);   /* Volta à posição original */
+    }
+}
+
+.icone-animando {
+    animation: animacaoSeta 0.25s ease-in-out;
+}
+
+.acordeom:hover{
+  background-color: #dfc634;
 }
 
 .img-project{
   width: 100%;
   height: 20vh;
   object-fit: cover;
+  display: block;
 }
 .card-body{
   
@@ -227,6 +259,17 @@ h1 {
 .card-button{
   margin-top: 7px;
   border-radius: 20px;
+  font-size: 1rem;
+  padding: 7px;
+  border: none;
+  background-color: #ffd700;
+  color: #181b20;
+  box-shadow: 1px 1px 1px gray;
+}
+
+.card-button:hover{
+  background-color: #dfc634;
+  color: white;
 }
 
 
