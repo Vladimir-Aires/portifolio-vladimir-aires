@@ -1,5 +1,3 @@
-//reestruturação de código conforme a seguinte lógica:
-// vou salvar num array os objetos json dos principais repositórios que quero que apareçam no meu portifólio. Esses objetos vão aparecer como cards no html do meu repositório e vão ser gerados por doom
 
 const repositorios = [
   {

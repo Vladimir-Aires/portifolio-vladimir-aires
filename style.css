@@ -40,6 +40,13 @@ header {
     0 4px 15px rgba(255, 215, 0, 0.4),
     0 0 30px rgba(255, 215, 0, 0.2);
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .box-img-header {
   height: 100%;
 }
@@ -95,11 +102,7 @@ nav {
   transition: all 0.3s;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+
 
 .first-section {
   background-image: url("images/fundo-portifolio.png");
@@ -266,6 +269,10 @@ h1 {
   color: white;
 }
 
+.fourth-section{
+  
+}
+
 footer {
   padding: 4rem;
   display: flex;
@@ -273,9 +280,3 @@ footer {
   gap: 2rem;
 }
 
-footer > div {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
