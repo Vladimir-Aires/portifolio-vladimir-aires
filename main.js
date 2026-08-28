@@ -1,47 +1,92 @@
-//reestruturação de código conforme a seguinte lógica:
-// vou salvar num array os objetos json dos principais repositórios que quero que apareçam no meu portifólio. Esses objetos vão aparecer como cards no html do meu repositório e vão ser gerados por doom
 
 const repositorios = [
   {
-    url,
-    nomeProjeto,
-    descricao,
-    miniatura,
+    url: "#testeURL",
+    nomeProjeto: "Teste nome do projeto",
+    descricao: "Teste descrição cweujvrjnvenjovenvenoevnjuevfvef",
+    miniatura: "images/emBreve_template.png",
   },
-  {},
-  {},
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
+  {
+    miniatura: "images/emBreve_template.png",
+  },
 ];
 
-function getProjects() {
-  const urlGitHub = "https://api.github.com/users/Vladimir-Aires/repos";
-  // var loadingElement = document.getElementById('loading')
+const secaoProjetos = document.querySelector(".my-projects-list");
 
-  fetch(urlGitHub, {
-    method: "GET",
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      // loadingElement.style.display = 'none'
-      //   showProjects(response);
-      console.log(response);
-    })
-    .catch((e) => {
-      console.log(e);
+function estruturador() {
+  repositorios.forEach((repositorio) => {
+    const cardProject = document.createElement("div");
+    cardProject.classList.add("card-project");
+
+    const img = document.createElement("img");
+    img.classList.add("img-project");
+    img.src = repositorio.miniatura;
+
+    const acordeom = document.createElement("button");
+    acordeom.classList.add("acordeom");
+    acordeom.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+
+    const icone = acordeom.querySelector("i");
+
+    acordeom.addEventListener("click", () => {
+      icone.classList.remove("icone-animando");
+      void icone.offsetWidth; // Força o reflow para reiniciar a animação
+      icone.classList.add("icone-animando");
     });
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    const cardTitle = document.createElement("h3");
+    cardTitle.classList.add("card-title");
+    cardTitle.textContent = repositorio.nomeProjeto;
+
+    const cardDescription = document.createElement("p");
+    cardDescription.classList.add("card-description");
+    cardDescription.textContent = repositorio.descricao;
+
+    const cardNav = document.createElement("button");
+    cardNav.classList.add("card-button");
+    cardNav.textContent = "Acessar";
+
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardDescription);
+    cardBody.appendChild(cardNav);
+    cardProject.appendChild(img);
+    cardProject.appendChild(acordeom);
+    cardProject.appendChild(cardBody);
+
+    secaoProjetos.appendChild(cardProject);
+  });
 }
 
-// function showProjects(data){
-//     var listElement = document.getElementById('my-projects-list')
+secaoProjetos.addEventListener("click", (event) => {
+  const botaoClicado = event.target.closest(".acordeom");
 
-//     for(let i = 0; i < data.length; i++){
-//         let a = document.createElement('a')
-//         a.href = data[i]['clone_url']
-//         a.target = '_blank'
-//         a.title = data[i]['description']
-//         let linkText = document.createTextNode(data[i]['name'])
-//         a.appendChild(linkText)
-//         listElement.appendChild(a)
-//     }
-// }
+  if (!botaoClicado) return;
 
-getProjects();
+  const cardAtual = botaoClicado.closest(".card-project");
+
+  const cardAberto = cardAtual.classList.contains("ativo");
+
+  document.querySelectorAll(".card-project.ativo").forEach((card) => {
+    card.classList.remove("ativo");
+  });
+
+  if (!cardAberto) {
+    cardAtual.classList.add("ativo");
+  }
+});
+estruturador();
